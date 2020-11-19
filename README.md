@@ -147,6 +147,7 @@ localhost:8000
 * Customizing axis https://www.youtube.com/watch?v=c3MCROTNN8g&list=PL9yYRbwpkykvOXrZumtZWbuaXWHvjD8gi&index=9, geraadpleegd op 7 november 2020.
 * D3 Semantic zooming, van https://bl.ocks.org/aleereza/d2be3d62a09360a770b79f4e5527eea8, geraadpleegd op 9 november 2020.
 * Learn react in 30 minutes, van https://www.youtube.com/watch?v=hQAHSlTtcmY&t=693s, geraadpelegd op 16 november 2020. 
-* Destructuring assignment, geraadpleegd op 18 november, van https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
-* React documentation, van https://reactjs.org/docs/getting-started.html, geraadpleegd op 17 november.
+* Destructuring assignment, van https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment, geraadpleegd op 18 november 2020.
+* React documentation, van https://reactjs.org/docs/getting-started.html, geraadpleegd op 17 november 2020.
+* Local Storage, van https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage, geraadpleegd op 19 november 2020. 
 
