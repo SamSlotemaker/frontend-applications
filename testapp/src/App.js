@@ -7,6 +7,12 @@ import './style.css'
 const LOCAL_STORAGE_KEY1 = 'todoApp.todos'
 const LOCAL_STORAGE_KEY2 = 'todoApp.profile'
 
+const names = [
+  "mark",
+  "rick",
+  "rianne",
+  'marietje'
+]
 
 function App() {
   //set todoState
@@ -17,7 +23,7 @@ function App() {
   const [persoon, setPersoon] = useState({ naam: "Sam", leeftijd: '20' })
 
 
-
+  //get stored todos on loading page
   useEffect(() => {
     const storedTodos = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY1))
     if (storedTodos) {
@@ -25,22 +31,24 @@ function App() {
     }
   }, [])
 
+  //set stored todos on changing todos
   useEffect(() => {
     localStorage.setItem(LOCAL_STORAGE_KEY1, JSON.stringify(todos))
   }, [todos])
 
+  //get stored person on loading page
   useEffect(() => {
-    console.log('get name')
     const profile = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY2))
     setPersoon(profile)
   }, [])
 
+  //set stored person on changing person
   useEffect(() => {
-    console.log('set name')
     localStorage.setItem(LOCAL_STORAGE_KEY2, JSON.stringify(persoon))
   }, [persoon])
 
   function handleAgeChange(persoon, nieuweLeeftijd) {
+    if (!nieuweLeeftijd) return
     setPersoon({
       naam: persoon.naam,
       leeftijd: nieuweLeeftijd
@@ -48,8 +56,12 @@ function App() {
   }
 
   function handleNameChange(persoon, nieuweNaam) {
+    if (!nieuweNaam) return
+
+    let nameCapitalized = nieuweNaam.charAt(0).toUpperCase() + nieuweNaam.slice(1)
+
     setPersoon({
-      naam: nieuweNaam,
+      naam: nameCapitalized,
       leeftijd: persoon.leeftijd
     })
   }
@@ -76,8 +88,7 @@ function App() {
 
   return (
     <>
-      <Profile persoon={persoon} handleAgeChange={handleAgeChange} handleNameChange={handleNameChange} />
-
+      <Profile persoon={persoon} handleAgeChange={handleAgeChange} handleNameChange={handleNameChange} names={names} />
       <section className="todo-container">
         <h1>TODO-LIST</h1>
         <Todolist todos={todos} toggleTodo={toggleTodo} />
