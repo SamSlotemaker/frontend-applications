@@ -3,8 +3,10 @@ import Todo from './Todo'
 
 export default function Todolist({ todos, toggleTodo }) {
     return (
-        todos.map(todo => {
-            return <Todo key={todo.id} todo={todo} toggleTodo={toggleTodo} />
-        })
+        <ul style={{ "padding": "0", "list-style-type": "none" }}>{
+            todos.map(todo => {
+                return <Todo key={todo.id} todo={todo} toggleTodo={toggleTodo} />
+            })}
+        </ul>
     )
 }

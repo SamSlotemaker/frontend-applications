@@ -44,10 +44,11 @@ function App() {
 
   return (
     <>
+      <h1>TODO-LIST</h1>
       <Todolist todos={todos} toggleTodo={toggleTodo} />
       <input ref={todoNameRef} type='text' />
-      <button onClick={handleAddTodo}>Add Todo</button>
-      <button onClick={clearAllCompleted}>Clear completed Todos</button>
+      <button onClick={handleAddTodo} style={{ display: "block", "margin": "1em 0em" }}>Add Todo</button>
+      <button onClick={clearAllCompleted} style={{ display: "block", "margin": "1em 0em" }}> Clear completed Todos</button>
       <div>{todos.filter(todo => !todo.complete).length} left to do</div>
     </>
   )
