@@ -3,6 +3,7 @@ import Todolist from './Todolist'
 import { v4 as uuidv4 } from 'uuid';
 import Profile from './Profile'
 import './style.css'
+import Cities from './Cities'
 
 const LOCAL_STORAGE_KEY1 = 'todoApp.todos'
 const LOCAL_STORAGE_KEY2 = 'todoApp.profile'
@@ -21,7 +22,6 @@ function App() {
 
   //set persoon State
   const [persoon, setPersoon] = useState({ naam: "Sam", leeftijd: '20' })
-
 
   //get stored todos on loading page
   useEffect(() => {
@@ -97,6 +97,7 @@ function App() {
         <button onClick={clearAllCompleted} style={{ display: "block", "margin": "1em 0em" }}> Clear completed Todos</button>
         <div>{todos.filter(todo => !todo.complete).length} left to do</div>
       </section>
+      <Cities />
     </>
   )
 }

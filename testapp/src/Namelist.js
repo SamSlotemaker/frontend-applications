@@ -2,6 +2,7 @@ import React, { useRef } from 'react'
 
 export default function Namelist({ names, changeNameInput }) {
 
+
     const selectNameRef = useRef()
 
     function handleSelectChange() {
