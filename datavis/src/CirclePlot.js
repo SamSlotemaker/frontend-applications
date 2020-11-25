@@ -12,7 +12,7 @@ function CirclePlot({ node, width, height, cityAverages }) {
     useEffect(() => {
         createScatterPlot(yStandard, 'gemiddeldeGroeiPerJaar')
     })
-    return <g ref={parent} className="svgParent"></g>
+    return <section ref={parent} className="svgParent"></section>
 
     function createScatterPlot(y, x) {
 

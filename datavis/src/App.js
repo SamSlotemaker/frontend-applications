@@ -3,14 +3,17 @@ import CirclePlot from './CirclePlot'
 import './App.css'
 import Cities from './Cities';
 import Introduction from './Introduction';
+import getData from './modules/getData.js'
+import ScrollButton from './ScrollButton'
+import About from './About';
 const d3 = require('d3')
 
 const root = document.getElementById('root')
 const width = window.innerWidth
 const heigth = window.innerHeight
 
-const introHeading = "Welcome readers,"
-const introduction = "we are here to look at some patterns Lorem ipsum dolor, sit amet consectetur adipisicing elit. Non, quis numquam similique saepe, maiores ea voluptate corrupti ipsum consequatur harum reprehenderit voluptatum rem aliquid. Officia rem hic odio omnis optio, magni laboriosam tempore dicta delectus repellat quia quasi! Magni doloremque voluptates nihil officiis ex facilis cupiditate et consequatur rerum sunt, reprehenderit quibusdam iusto eum debitis sit quas veniam ducimus quidem are here to look at some patterns Lorem ipsum dolor, sit amet consectetur adipisicing elit. Non, quis numquam similique saepe, maiores ea voluptate corrupti ipsum consequatur harum reprehenderit voluptatum rem aliquid. Officia rem hic odio omnis optio, magni laboriosam tempore dicta delectus repellat quia quasi! Magni doloremque voluptates nihil officiis ex facilis cupiditate et consequatur rerum sunt, reprehenderit quibusdam iusto eum debitis sit quas veniam ducimus quidem are here to look at some patterns Lorem ipsum dolor, sit amet consectetur adipisicing elit. Non, quis numquam similique saepe, maiores ea voluptate corrupti ipsum consequatur harum reprehenderit voluptatum rem aliquid. Officia rem hic odio omnis optio, magni laboriosam tempore dicta delectus repellat quia quasi! Magni doloremque voluptates nihil officiis ex facilis cupiditate et consequatur rerum sunt, reprehenderit quibusdam iusto eum debitis sit quas veniam ducimus quidemrerum sunt, reprehenderit quibusdam iusto eum debitis sit quas veniam ducimus quidemrerum sunt, reprehenderit quibusdam iusto eum debitis sit quas veniam ducimus quidemrerum sunt, reprehenderit quibusdam iusto eum debitis sit quas veniam ducimus quidem"
+const introHeading = "De auto in de stad"
+const introduction = "Parkeerdata kent vele richting en inzichten. Ik heb er voor gekozen om mijn te richten op het verschil in welvaart tussen bepaalde gebieden. Ik ben gaan kijken naar het verschil in welvaart per gebied en de parkeerdata. Ook heb ik gekeken of duurdere parkeergebieden meer terugkrijgen voor hun geld."
 
 function App() {
   const [cityAverages, setcityAverages] = useState(null)
@@ -28,19 +31,18 @@ function App() {
     })
   }, [])
 
+
+
   return (
     <>
+      <ScrollButton scrollDirection={1} />
+      <ScrollButton scrollDirection={2} />
       <Introduction heading={introHeading} text={introduction} />
-      {cityAverages && <CirclePlot cityAverages={cityAverages} node={root} width={width - 100} height={heigth} />}
+      {cityAverages && <CirclePlot cityAverages={cityAverages} node={root} width={width - 100} height={heigth - 50} />}
       {cityAverages && verkoopPunten && <Cities cityAverages={cityAverages} verkoopPunten={verkoopPunten} />}
+      <About />
     </>
   )
 }
-
 export default App;
 
-async function getData(url) {
-  const result = await fetch(url)
-  const resultJSON = await result.json()
-  return resultJSON
-}
