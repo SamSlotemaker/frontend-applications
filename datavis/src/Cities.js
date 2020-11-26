@@ -1,8 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react'
 import BarchartInformation from './BarchartInformation'
 import City from './City'
-import InformationPOPUP from './InformationPOPUP'
+import InformationPopup from './InformationPopup'
 import { formatCityData, sortedArrayNamesSmallToLarge, calculateMaxAantal, calculateMaxAantalEnkel } from './modules/cleanData'
+import arrow from './images/arrow.png'
 
 export default function Cities({ cityAverages, verkoopPunten }) {
 
@@ -54,9 +55,11 @@ export default function Cities({ cityAverages, verkoopPunten }) {
         <>
             {/* create form where you can add cities to the state */}
             <section className="barchart-container">
-                <InformationPOPUP>
+                <InformationPopup>
                     <BarchartInformation />
-                </InformationPOPUP>
+                </InformationPopup>
+                <h2>Aantal toegevoegde parkeerautomaten per jaar</h2>
+
                 <form>
                     <select ref={selectCityRef}>
                         {sortedByCityNames.map(item => {
@@ -69,6 +72,9 @@ export default function Cities({ cityAverages, verkoopPunten }) {
                     <button type="button" onClick={clearList}>Clear</button>
                 </form>
 
+                {cities.length === 0 && <ul className="zeroState">
+                    <li>Voeg een stad toe om te vergelijken</li>
+                </ul>}
                 {/* return city visualisations of all cities in the state */}
                 <ul>
                     {cities.map(item => {

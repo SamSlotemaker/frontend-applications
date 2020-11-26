@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
-import InformationPOPUP from './InformationPOPUP'
+import InformationPopup from './InformationPopup'
 import VariableList from './VariableList'
 const d3 = require('d3')
 
@@ -14,9 +14,9 @@ function CirclePlot({ node, width, height, cityAverages }) {
         createScatterPlot(yStandard, 'gemiddeldeGroeiPerJaar')
     })
     return <section ref={parent} className="svgParent">
-        <InformationPOPUP>
+        <InformationPopup>
             <VariableList />
-        </InformationPOPUP>
+        </InformationPopup>
     </section>
 
     function createScatterPlot(y, x) {

@@ -94,6 +94,21 @@
       color: white;
       border-radius: 50%;
       cursor: pointer;
+      animation: scalen 2s infinite ease-in-out
+  }
+
+  @keyframes scalen {
+      0% {
+          transform: scale(1);
+      }
+
+      50% {
+          transform: scale(1.35);
+      }
+
+      100% {
+          transform: scale(1);
+      }
   }
 
   .information-popup div:first-of-type:hover+div {
@@ -103,6 +118,7 @@
   }
 
   .information-popup div:last-of-type {
+      z-index: 99;
       opacity: 0;
       pointer-events: none;
       transition: 0.3s ease-in-out;
@@ -266,6 +282,35 @@
       justify-items: center;
   }
 
+  .zeroState li {
+      border: solid 2px white;
+      width: 450px;
+      height: 350px;
+      display: grid;
+      place-items: center;
+      color: white;
+      font-weight: 600;
+      position: relative;
+  }
+
+  /* .zeroState li:last-of-type {
+      border: none;
+  } */
+
+
+  .zeroState li:after {
+      position: absolute;
+      content: "";
+      background-image: url("./images/arrow.png");
+      width: 300px;
+      height: 300px;
+      top: 0;
+      left: 100%;
+      background-size: contain;
+      background-repeat: no-repeat;
+      transform-origin: left top;
+      transform: rotate(-45deg) translateX(-40%);
+  }
 
   .barchart-container {
       min-height: 100vh;
@@ -303,9 +348,15 @@
   }
 
   .about h2 {
-      color: #005270;
+      color: white;
       margin-bottom: .5em;
       font-size: 3em;
+  }
+
+  .barchart-container h2 {
+      color: white;
+      margin: 1em 0em 2em 0em;
+      font-size: 1em;
   }
 
   h3 {

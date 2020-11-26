@@ -1,11 +1,15 @@
 import React from 'react'
 
 
-export default function InformationPOPUP({ children }) {
+function removeAnimation(e) {
+    e.target.style.animation = 0;
+}
+
+export default function InformationPopup({ children }) {
 
     return (
         <div className="information-popup">
-            <div>i</div>
+            <div onMouseEnter={removeAnimation}>i</div>
             <div>
                 {children}
             </div>
