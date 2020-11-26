@@ -9,7 +9,7 @@ De opdracht is het maken van een verhalende applicatie voor de volkskrant, met a
 
 
 ## Applicatie 
-![voorbeeld applicatie](/datavis/frontend-applicationGIF.gif)
+![frontend-applicationGIF](https://user-images.githubusercontent.com/60625329/100396844-0cc54c00-3047-11eb-88c0-dc59dca76b6c.gif)
 
 ### Proces
 Voor mijn volledige proces kun je naar de Wiki navigeren, waar ik mijn proces en denkwijze documenteer
