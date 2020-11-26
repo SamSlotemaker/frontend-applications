@@ -74,3 +74,15 @@ export function sortArrayLargeToSmall(array, property) {
         return b[property] - a[property]
     })
 }
+
+
+export function cleanAverages(array) {
+    array.forEach(item => {
+        if (!item.afstandStation) {
+            item.afstandStation = 0
+        }
+        if (!item.autoPerHuishouden) {
+            item.autoPerHuishouden = 0
+        }
+    })
+}

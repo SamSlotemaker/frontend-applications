@@ -1,4 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
+import InformationPOPUP from './InformationPOPUP'
+import VariableList from './VariableList'
 const d3 = require('d3')
 
 //This function will wrap all the logic for the Linechart component
@@ -6,13 +8,16 @@ function CirclePlot({ node, width, height, cityAverages }) {
     const data = cityAverages
     const parent = useRef(node)
     console.log("Creating CirclePlot component.", node, width, parent)
-
     const yStandard = 'gemiddeldeUurPrijs'
 
     useEffect(() => {
         createScatterPlot(yStandard, 'gemiddeldeGroeiPerJaar')
     })
-    return <section ref={parent} className="svgParent"></section>
+    return <section ref={parent} className="svgParent">
+        <InformationPOPUP>
+            <VariableList />
+        </InformationPOPUP>
+    </section>
 
     function createScatterPlot(y, x) {
 
@@ -62,10 +67,6 @@ function CirclePlot({ node, width, height, cityAverages }) {
             .attr("width", innerWidth)
             .attr("height", innerHeight);
 
-        // const geoVerkoopPuntenURL = 'https://gist.githubusercontent.com/SamSlotemaker/d11dd2741cfbaf8f64ac72b0c200685a/raw/48058e82f20483c1d6c94071ac26c585989dbd02/stadsGemiddelden.json'
-        // d3.json(geoVerkoopPuntenURL)
-        // .then(data => {
-
         let xVar = x
         let yVar = y
 
@@ -84,9 +85,10 @@ function CirclePlot({ node, width, height, cityAverages }) {
 
         //haal propertynames uit de data voor de filteropties
         let propertyNames = Object.getOwnPropertyNames(data[0])
-        let propertyNamesWithoutCity = propertyNames.slice(1, 4)
+        let propertyNamesWithoutCity = propertyNames.slice(1, 6)
         let yFields = propertyNamesWithoutCity
 
+        console.log(propertyNames)
         //creeer groep voor grafiek
         const g = svg.append('g')
             .attr('transform', `translate(${margin.left}, ${margin.top})`)

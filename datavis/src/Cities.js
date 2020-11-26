@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react'
+import BarchartInformation from './BarchartInformation'
 import City from './City'
+import InformationPOPUP from './InformationPOPUP'
 import { formatCityData } from './modules/cleanData'
 
 export default function Cities({ cityAverages, verkoopPunten }) {
@@ -41,6 +43,9 @@ export default function Cities({ cityAverages, verkoopPunten }) {
         <>
             {/* create form where you can add cities to the state */}
             <section className="barchart-container">
+                <InformationPOPUP>
+                    <BarchartInformation />
+                </InformationPOPUP>
                 <form>
                     <select ref={selectCityRef}>
                         {cityAverages.map(item => {
