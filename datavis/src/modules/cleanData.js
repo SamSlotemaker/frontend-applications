@@ -16,7 +16,6 @@ export function formatCityData(array, city) {
         })
     }
     const sortedArrayOfYears = sortArrayLargeToSmall(arrayOfYears, 'jaar')
-    console.log(sortedArrayOfYears)
     return arrayOfYears
 }
 
@@ -28,11 +27,39 @@ export function filterArray(array, column, value) {
     })
 }
 
+// export function calculateMaxAantal(array, array2) {
+//     let cityObjects = []
+//     array.forEach(item => {
+//         const aantal = formatCityData(array2, item.city)
+//         const aantalArray = aantal.map(item => {
+//             return +item.aantal
+//         })
+//         cityObjects = [...cityObjects, ...aantalArray]
+//     })
+//     return Math.max.apply(Math, cityObjects);
+// }
+
+export function calculateMaxAantalEnkel(array) {
+    let cityObjects = []
+    const aantalArray = array.map(item => {
+        return +item.aantal
+    })
+
+    cityObjects = [...cityObjects, ...aantalArray]
+    return Math.max.apply(Math, cityObjects);
+}
+
 //create array with only the city and start year of the selling point
 export function createArrayCityYears(array) {
     return array.map(item => {
         const datum = item.startdatesellingpoint
-        const jaar = datum.slice(0, 4)
+        let jaar;
+        if (datum) {
+            jaar = datum.slice(0, 4)
+        }
+        else {
+            jaar = '0000'
+        }
         return {
             city: item.city,
             jaar: jaar
@@ -44,7 +71,6 @@ export function createArrayCityYears(array) {
 export function countItemsinArray(array) {
     const allYears = array.map(item => item.jaar)
     let allItems = [...new Set(allYears)] //maak array van alle unieke jaartallen
-    console.log(allItems)
     let counter = {} //maak counter object dat later gevuld wordt
     allItems.forEach(item => {
         counter[item] = 0
@@ -73,6 +99,16 @@ export function sortArrayLargeToSmall(array, property) {
     return newArray.sort((a, b) => {
         return b[property] - a[property]
     })
+}
+
+export function sortedArrayNamesSmallToLarge(array, property) {
+    const newArray = [...new Set(array)]
+    const sortedArray = newArray.sort(function (a, b) {
+        if (a[property] < b[property]) { return -1; }
+        if (a[property] > b[property]) { return 1; }
+        return 0;
+    })
+    return sortedArray
 }
 
 

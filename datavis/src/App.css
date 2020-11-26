@@ -308,6 +308,12 @@
       font-size: 3em;
   }
 
+  h3 {
+      color: #cbf1ff;
+      margin: 2em 0em .3em 0em;
+      font-size: 1.5em;
+  }
+
   .about p {
       max-width: none;
   }
