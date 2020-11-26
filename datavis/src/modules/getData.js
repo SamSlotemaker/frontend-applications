@@ -3,3 +3,4 @@ export default async function getData(url) {
     const resultJSON = await result.json()
     return resultJSON
 }
+

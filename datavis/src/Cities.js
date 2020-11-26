@@ -2,29 +2,32 @@ import React, { useState, useEffect, useRef } from 'react'
 import BarchartInformation from './BarchartInformation'
 import City from './City'
 import InformationPopup from './InformationPopup'
-import { formatCityData, sortedArrayNamesSmallToLarge, calculateMaxAantal, calculateMaxAantalEnkel } from './modules/cleanData'
-import arrow from './images/arrow.png'
+import { formatCityData, sortedArrayNamesSmallToLarge, calculateMaxAantal } from './modules/cleanData'
 
 export default function Cities({ cityAverages, verkoopPunten }) {
 
     const CITIES_KEY = 'CITIES_LIST_KEY'
+    const MAX_VALUE_KEY = 'MAX_VALUE_KEY'
     const [cities, setCities] = useState([])
     const [maxValue, setmaxValue] = useState(0)
     const selectCityRef = useRef()
-    //returns promise with data from given url
+    const sortedByCityNames = sortedArrayNamesSmallToLarge(cityAverages, "city")
 
+    //on page load
     useEffect(() => {
+        //add localstorage value to states
         const cityList = JSON.parse(localStorage.getItem(CITIES_KEY))
+        const maxValue = JSON.parse(localStorage.getItem(MAX_VALUE_KEY))
         setCities(cityList)
-        // setmaxValue(calculateMaxAantal(cityAverages, verkoopPunten))
-        setmaxValue(0)
+        setmaxValue(maxValue)
     }, [])
-    //add to local storage on loading page
+    //add to localstorage on state change
     useEffect(() => {
         localStorage.setItem(CITIES_KEY, JSON.stringify(cities))
+        localStorage.setItem(MAX_VALUE_KEY, JSON.stringify(maxValue))
     }, [cities])
 
-
+    //add targeted city to state
     function handleAddCity() {
         const city = selectCityRef.current.value
         // const cityObject = verkoopPunten.find(item => city === item.city)
@@ -36,20 +39,16 @@ export default function Cities({ cityAverages, verkoopPunten }) {
         setCities(
             [...cities, cityObject2]
         )
-        const newMaxCityAantal = calculateMaxAantalEnkel(cityObject)
+        const newMaxCityAantal = calculateMaxAantal(cityObject)
         if (maxValue < newMaxCityAantal) {
             setmaxValue(newMaxCityAantal)
         }
     }
-
-
     //clear the state with the city list
     function clearList() {
         setCities([])
         setmaxValue(0)
     }
-
-    const sortedByCityNames = sortedArrayNamesSmallToLarge(cityAverages, "city")
 
     return (
         <>
@@ -59,7 +58,6 @@ export default function Cities({ cityAverages, verkoopPunten }) {
                     <BarchartInformation />
                 </InformationPopup>
                 <h2>Aantal toegevoegde parkeerautomaten per jaar</h2>
-
                 <form>
                     <select ref={selectCityRef}>
                         {sortedByCityNames.map(item => {
@@ -67,11 +65,9 @@ export default function Cities({ cityAverages, verkoopPunten }) {
                         }
                         )}
                     </select>
-
                     <button type="button" onClick={handleAddCity}>Add</button>
                     <button type="button" onClick={clearList}>Clear</button>
                 </form>
-
                 {cities.length === 0 && <ul className="zeroState">
                     <li>Voeg een stad toe om te vergelijken</li>
                 </ul>}

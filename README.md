@@ -2,10 +2,10 @@
 ![picture of data visualisatoin](https://i.pinimg.com/originals/2e/e6/99/2ee6998e34c3e2eff7b894c66cfc5267.jpg)
 
 ## :grey_question: Beschrijving
-In deze repo vind je mijn proces van het vak frontend applicatoins, een 2 weken durend vak gegeven aan de HvA Tech-Track op Communication & Multimedia Design.
+In deze repo vind je mijn proces van het vak frontend applications, een 2 weken durend vak gegeven aan de HvA Tech-Track op Communication & Multimedia Design. In het vak leren we een webapplicatie te maken doormiddel van een fronteind framework naar keuze. In mijn geveal: React.
 
 ### :red_car:  Opdracht 
-De opdracht is het maken van een verhalende applicatie voor de volkskrant, met als thema 'de auto in de stad'. Hierbij is het zaak dat er een nieuwswaarde aan het verhaal hangt en alles een geheel vormt. De applicatie moet gemaakt zijn in een frontend framework, in mijn geval: React 
+De opdracht is het maken van een verhalende applicatie voor de volkskrant, met als thema 'de auto in de stad'. Hierbij is het zaak dat er een nieuwswaarde aan het verhaal hangt en alles een geheel vormt.
 
 
 ## Applicatie 
@@ -102,7 +102,7 @@ https://github.com/SamSlotemaker/frontend-data/wiki/Data-transformation
 
 ### Lege waardes
 Bij lege of invalide waarde in de coordinaten/plaatsnaam wordt het object volledig genegeerd. Ik kan in mijn geval niks met een onbekende plek. 
-Lege/invalide waardes bij groei, vermogen of uurprijs worden op 0 gezet. Op deze manier kunnen er alsnog andere vergelijkingen gedaan worden. Ook kunnen lege waardes bij groei en uurprijs betekenen dat er daatwerkelijk geen groei is of het parkeren gratis is. 
+Lege/invalide waardes bij groei, vermogen of uurprijs worden op 0 gezet. Op deze manier kunnen er alsnog andere vergelijkingen gedaan worden. Ook kunnen lege waardes bij groei en uurprijs betekenen dat er daadwerkelijk geen groei is of het parkeren gratis is. 
 
 ## :gear: Installation
 1. Clone deze repository
@@ -117,9 +117,9 @@ npm install
 ```
 npm start
 ```
-4. Open project in browser op port 8000
+4. Open project in browser op port 3000
 ```
-localhost:8000
+localhost:3000
 ```
 
 

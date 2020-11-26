@@ -39,14 +39,11 @@ export function filterArray(array, column, value) {
 //     return Math.max.apply(Math, cityObjects);
 // }
 
-export function calculateMaxAantalEnkel(array) {
-    let cityObjects = []
+export function calculateMaxAantal(array) {
     const aantalArray = array.map(item => {
         return +item.aantal
     })
-
-    cityObjects = [...cityObjects, ...aantalArray]
-    return Math.max.apply(Math, cityObjects);
+    return Math.max.apply(Math, aantalArray);
 }
 
 //create array with only the city and start year of the selling point

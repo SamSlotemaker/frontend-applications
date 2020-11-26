@@ -10,7 +10,6 @@ const margin = {
     left: 50
 }
 
-
 export default function City({ cityObject, maxValue }) {
     const [data, setData] = useState(cityObject.data);
     console.log(maxValue)
@@ -18,21 +17,11 @@ export default function City({ cityObject, maxValue }) {
     //bereken maximale lengtes van grafiek
     const innerWidth = width - margin.left - margin.right
     const innerHeight = height - margin.top - margin.bottom
-
+    let maxDomainValue = maxValue;
     const xScale = d3.scaleBand()
         .domain(data.map(d => d.jaar))
         .range([0, innerWidth])
         .padding(0.1)
-
-    let maxDomainValue;
-    if (maxValue === 0) {
-        maxDomainValue = d3.max(data, d => d.aantal)
-        console.log(maxDomainValue)
-    }
-    else {
-        maxDomainValue = maxValue
-    }
-
     const yScale = d3.scaleLinear()
         .domain([maxDomainValue, 0])
         .range([0, innerHeight])
@@ -50,7 +39,6 @@ export default function City({ cityObject, maxValue }) {
                     })}
                     {xScale.domain().map(tickValue => {
                         return <text key={tickValue} y={innerHeight + 5} x={xScale(tickValue) + xScale.bandwidth() / 2} dy=".71em" style={{ textAnchor: "middle" }}>{tickValue}</text>
-
                     })}
                     {data.map((d) => <rect y={yScale(d.aantal)}
                         key={d.jaar}
