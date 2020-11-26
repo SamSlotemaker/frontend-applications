@@ -7,8 +7,17 @@ In deze repo vind je mijn proces van het vak frontend applicatoins, een 2 weken 
 ### :red_car:  Opdracht 
 De opdracht is het maken van een verhalende applicatie voor de volkskrant, met als thema 'de auto in de stad'. Hierbij is het zaak dat er een nieuwswaarde aan het verhaal hangt en alles een geheel vormt. De applicatie moet gemaakt zijn in een frontend framework, in mijn geval: React 
 
+
+## Applicatie 
+![voorbeeld applicatie](/datavis/frontend-applicationGIF.gif)
+
 ### Proces
 Voor mijn volledige proces kun je naar de Wiki navigeren, waar ik mijn proces en denkwijze documenteer
+
+Data visualisatie proces:
+https://github.com/SamSlotemaker/frontend-data/wiki
+
+Frontend Apllicatie proces: 
 https://github.com/SamSlotemaker/frontend-applications/wiki
 
 ## :pencil: Concept 
@@ -95,19 +104,10 @@ https://github.com/SamSlotemaker/frontend-data/wiki/Data-transformation
 Bij lege of invalide waarde in de coordinaten/plaatsnaam wordt het object volledig genegeerd. Ik kan in mijn geval niks met een onbekende plek. 
 Lege/invalide waardes bij groei, vermogen of uurprijs worden op 0 gezet. Op deze manier kunnen er alsnog andere vergelijkingen gedaan worden. Ook kunnen lege waardes bij groei en uurprijs betekenen dat er daatwerkelijk geen groei is of het parkeren gratis is. 
 
-## Visualisatie
-Een scatterplot waar verbanden ontdekt kunnen worden tussen de groei in parkeervernieuwing en vermogen/gemiddelde uurprijs per stad
-https://samslotemaker.github.io/frontend-data/public/index.html
-![Imgur](https://imgur.com/L9JMv3Y.png)
-
-### Voorbeeld
-De visualisatie is ontwikkeld vanuit een voorbeeld van Curren
-https://vizhub.com/curran/9247d4d42df74185980f7b1f7504dcc5
-![Imgur](https://imgur.com/PyTIbyw.png)
 ## :gear: Installation
 1. Clone deze repository
 ```
-git clone https://github.com/SamSlotemaker/frontend-data.git
+git clone https://github.com/SamSlotemaker/frontend-applications.git
 ```
 2. Installeer npm packages
 ```
